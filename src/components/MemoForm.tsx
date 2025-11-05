@@ -16,8 +16,8 @@ interface MemoFormProps {
   editingMemo?: Memo | null
 }
 
-const MDEditor = dynamic<typeof import('@uiw/react-md-editor').default>(
-  () => import('@uiw/react-md-editor'),
+const MDEditor = dynamic(
+  () => import('@uiw/react-md-editor').then(mod => mod.default),
   { ssr: false }
 )
 
