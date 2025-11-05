@@ -3,9 +3,12 @@
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { Memo, MemoFormData } from '@/types/memo'
+import { Database } from '@/types/supabase'
+
+type MemoRow = Database['public']['Tables']['memos']['Row']
 
 // Helper function to convert Supabase row to Memo type
-function mapToMemo(row: any): Memo {
+function mapToMemo(row: MemoRow): Memo {
   return {
     id: row.id,
     title: row.title,
